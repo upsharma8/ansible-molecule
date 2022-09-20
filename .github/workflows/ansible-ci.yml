@@ -8,4 +8,4 @@ jobs:
     runs-on: [rhel8-latest]
     steps:
     - name: Run molecule tests
-      run: "cd molecule_testing && molecule test" 
+      run: "cd molecule_testing && molecule --env-file ./molecule/default/ip.yml test" 
