@@ -27,5 +27,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
+    - name: Install dependencies.
+      run: "python3 -m pip install molecule"
     - name: Run molecule tests
       run: "cd molecule_testing && molecule --env-file ./molecule/default/ip.yml test" 
