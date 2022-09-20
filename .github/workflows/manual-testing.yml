@@ -21,11 +21,11 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
     - name: Checkout
-        uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
     - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
     - name: Run molecule tests
       run: "cd molecule_testing && molecule --env-file ./molecule/default/ip.yml test" 
