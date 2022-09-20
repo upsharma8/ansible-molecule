@@ -28,4 +28,4 @@ jobs:
       with:
         python-version: '3.x'
     - name: Run molecule tests
-      run: "ls && molecule --env-file ./molecule/default/ip.yml test" 
+      run: "cd molecule_testing && molecule --env-file ./molecule/default/ip.yml test" 
