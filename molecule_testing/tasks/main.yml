@@ -1,0 +1,11 @@
+---
+# tasks file for molecule_testing
+
+- name: Molecule Hello World!
+  debug:
+    msg: Hello, World!
+- name: Copy file
+  ansible.builtin.copy:
+    src: files/a.txt
+    dest: /foo.txt
+
