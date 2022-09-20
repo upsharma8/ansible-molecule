@@ -1,0 +1,11 @@
+name: Ansibe CI Base
+on:
+  workflow_call
+
+
+jobs:
+  dynamic-tests:
+    runs-on: [rhel8-latest]
+    steps:
+    - name: Run molecule tests
+      run: "cd molecule-testing && molecule test" 
