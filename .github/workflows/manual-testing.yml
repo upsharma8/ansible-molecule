@@ -18,7 +18,7 @@ on:
 
 jobs:
   dynamic-tests:
-    runs-on: [rhel8-latest]
+    runs-on: [ubuntu-latest]
     steps:
     - name: Run molecule tests
       run: "cd molecule_testing && molecule --env-file ./molecule/default/ip.yml test" 
