@@ -30,4 +30,9 @@ jobs:
     - name: Install dependencies.
       run: "python3 -m pip install molecule"
     - name: Run molecule tests
-      run: "cd molecule_testing && molecule --env-file ./molecule/default/ip.yml test" 
+      run: "cd molecule_testing && molecule test" 
+      env:
+        SSH_USER: ${{ secrets.SSH_USERNAME }}
+        SSH_KEY: ${{ secrets.SSH_KEY }}
+        HOST: ${{ secrets.SSH_HOST }}
+        
