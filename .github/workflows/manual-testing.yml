@@ -29,8 +29,6 @@ jobs:
         python-version: '3.x'
     - name: Install dependencies.
       run: "python3 -m pip install molecule"
-    - name: Saving private key file
-      run: "echo ${{ secrets.SSH_KEY }} > key.pem"
     - name: Run molecule tests
       run: "cd molecule_testing && molecule test" 
       env:
