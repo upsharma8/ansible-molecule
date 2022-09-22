@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies.
       run: "python3 -m pip install molecule"
     - name: Saving private key file
-      run: "echo $SSH_KEY > /home/runner/key.pem"
+      run: "echo $SSH_KEY > /home/runner/key.pem && chmod 400 /home/runner/key.pem"
       shell: bash
       env:
         SSH_KEY: ${{secrets.SSH_KEY}}
