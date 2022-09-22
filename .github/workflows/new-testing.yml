@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies.
       run: "python3 -m pip install molecule"
     - name: Decrypt Pem
-      run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/testing-ansible.pem testing-ansible.pem.gpg 
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/testing-ansible.pem testing-ansible.pem.gpg && chmod 400 /home/runner/testin-ansible.pem 
       env:
         LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
     - name: Run molecule tests
