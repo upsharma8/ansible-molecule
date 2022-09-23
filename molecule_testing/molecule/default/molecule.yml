@@ -7,8 +7,7 @@ driver:
     managed: False
     ansible_connection_options:
       ansible_connection: ssh
-      ansible_user: $SSH_USER  
-      ansible_ssh_private_key_file: $HOME/testing-ansible.pem
+      ansible_user: $SSH_USER     
 platforms:
   - name: $SSH_HOST
 
