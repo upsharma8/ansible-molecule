@@ -30,10 +30,12 @@ jobs:
     - name: Install dependencies.
       run: "python3 -m pip install molecule"
     
-    - name: Run molecule tests
+    - name: Setup private key
       uses: webfactory/ssh-agent@v0.5.4
       with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
+    
+    - name: Run molecule tests
     - run: "cd molecule_testing && molecule test" 
       env:
         SSH_USER: ${{ secrets.SSH_USERNAME }}
