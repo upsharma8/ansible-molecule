@@ -32,7 +32,7 @@ jobs:
     
     
     - name: Run molecule tests for windows
-      run: "cd molecule_testing && molecule converge" 
+      run: "cd molecule_testing && python3 -m pip install pywinrm && molecule converge" 
       env:
         PASSWORD: ${{ secrets.TESTING_WINDOWS_PWD }}
     
