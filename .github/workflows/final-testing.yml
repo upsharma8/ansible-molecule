@@ -30,14 +30,16 @@ jobs:
     - name: Install dependencies.
       run: "python3 -m pip install molecule && python3 -m pip install pywinrm"
     
-    - name: Setup private key
-      uses: webfactory/ssh-agent@v0.5.4
-      with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
+    
     - name: Run molecule tests for windows
       run: "cd molecule_testing && molecule converge" 
       env:
         PASSWORD: ${{ secrets.TESTING_WINDOWS_PWD }}
+    
+    - name: Setup private key
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
     - name: Run molecule tests
       run: "cd molecule_testing && molecule test" 
       env:
