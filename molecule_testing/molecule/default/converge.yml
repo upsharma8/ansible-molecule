@@ -2,7 +2,6 @@
 - name: Converge
   hosts: all
   gather_facts: false
-  become: true
   tasks:
      - name: Testing a command
        win_command: netstat -e
