@@ -6,11 +6,21 @@ driver:
   options:
     managed: False
     ansible_connection_options:
-      ansible_connection: ssh
-      ansible_user: $SSH_USER     
+      ansible_connection: winrm
+      ansible_user: administrator
+      ansible_password: $PASSWORD
+      ansible_winrm_transport: ntlm
+      ansible_winrm_server_cert_validation: ignore
+      ansible_port: 5986
+    
+    
 platforms:
-  - name: $SSH_HOST
+  - name: 43.205.130.49
 
 verifier:
   name: ansible
+  
+  
+   #  ansible_connection: ssh
+    #  ansible_user: $SSH_USER    
 
