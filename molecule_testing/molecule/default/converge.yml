@@ -4,6 +4,9 @@
   gather_facts: false
   become: true
   tasks:
-    - name: "Include acme.molecule_testing"
-      ansible.builtin.include_role:
-        name: "acme.molecule_testing"
+     - name: Testing a command
+       win_command: netstat -e
+  
+  #  - name: "Include acme.molecule_testing"
+   #   ansible.builtin.include_role:
+    #    name: "acme.molecule_testing"
