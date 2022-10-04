@@ -8,7 +8,7 @@ driver:
     ansible_connection_options:
       ansible_connection: winrm
       ansible_user: administrator
-      ansible_password: $PASSWORD
+      ansible_password: $ANSIBLE_TESTING_WIN_PWD
       ansible_winrm_transport: ntlm
       ansible_winrm_server_cert_validation: ignore
       ansible_port: 5986
