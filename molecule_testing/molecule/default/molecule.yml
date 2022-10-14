@@ -15,7 +15,7 @@ driver:
     
     
 platforms:
-  - name: 43.205.130.49
+  - name: 13.233.225.198
 
 verifier:
   name: ansible
