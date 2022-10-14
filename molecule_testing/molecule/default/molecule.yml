@@ -6,12 +6,15 @@ driver:
   options:
     managed: False
     ansible_connection_options:
-      ansible_connection: winrm
-      ansible_user: administrator
-      ansible_password: $ANSIBLE_TESTING_WIN_PWD
-      ansible_winrm_transport: ntlm
-      ansible_winrm_server_cert_validation: ignore
-      ansible_port: 5986
+       ansible_connection: ssh
+       ansible_user: ec2-user
+       ansible_ssh_private_key_file: ~/.ssh/id_rsa
+  #    ansible_connection: winrm
+  #    ansible_user: administrator
+  #    ansible_password: $ANSIBLE_TESTING_WIN_PWD
+  #    ansible_winrm_transport: ntlm
+  #    ansible_winrm_server_cert_validation: ignore
+  #    ansible_port: 5986
     
     
 platforms:
