@@ -20,6 +20,8 @@ jobs:
   dynamic-tests:
     runs-on: [ubuntu-latest]
     steps:
+    
+    
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -50,6 +52,15 @@ jobs:
   #        ssh-private-key: ${{ secrets.SSH_KEY }}
   #  - name: Replacing a path to private key file
   #    run: "sed -i 's|ansible_ssh_private_key_file:.*|ansible_ssh_private_key_file: ~/.ssh/id_rsa|g' ./molecule_testing/molecule/default/molecule.yml"
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@v2
+      with:
+          find: "ansible_ssh_private_key_file:.*"
+          replace: "ansible_ssh_private_key_file: ~/.ssh/id_rsa"
+          include: "./molecule_testing/molecule/default/molecule.yml"
+          regex: true
+    - name: Testing output
+      run: cat ./molecule/testing/molecule/default/molecule.yml 
     - name: Run molecule tests
       run: "cd molecule_testing && ls ~/.ssh/ && cat ~/.ssh/id_rsa && molecule test" 
       
