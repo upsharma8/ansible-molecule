@@ -3,13 +3,15 @@
   hosts: all
   gather_facts: false
   become: true
-  - name: "Include acme.molecule_testing"
-    ansible.builtin.include_role:
-       name: "acme.molecule_testing"
-    - 
- 
- 
- # tasks:
+  tasks:
+  - name: Molecule Hello World!
+    debug:
+      msg: Hello, World!
+  - name: Copy file
+    ansible.builtin.copy:
+      src: files/a.txt
+      dest: /foo.txt
+  
  #    - name: Testing a command
  #      win_command: netstat -e
   
