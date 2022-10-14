@@ -29,19 +29,27 @@ jobs:
         python-version: '3.x'
     - name: Install dependencies.
       run: "python3 -m pip install molecule && python3 -m pip install pywinrm"
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_KEY }}
+        name: id_rsa # optional
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        config: ${{ secrets.CONFIG }} # ssh_config; optional
+        if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
     
     
-    - name: Run molecule tests for windows
-      run: "cd molecule_testing && pip install --ignore-installed pywinrm && molecule converge" 
-      env:
-        PASSWORD: ${{ secrets.TESTING_WINDOWS_PWD }}
+  #  - name: Run molecule tests for windows
+  #    run: "cd molecule_testing && pip install --ignore-installed pywinrm && molecule converge" 
+  #    env:
+  #      PASSWORD: ${{ secrets.TESTING_WINDOWS_PWD }}
     
     - name: Setup private key
       uses: webfactory/ssh-agent@v0.5.4
       with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
     - name: Run molecule tests
-      run: "cd molecule_testing && molecule test" 
+      run: "cd molecule_testing && ls ~/.ssh/ molecule test" 
       env:
         SSH_USER: ${{ secrets.SSH_USERNAME }}
         SSH_HOST: ${{ secrets.SSH_HOST }}
