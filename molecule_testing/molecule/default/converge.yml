@@ -2,9 +2,16 @@
 - name: Converge
   hosts: all
   gather_facts: false
-  tasks:
-     - name: Testing a command
-       win_command: netstat -e
+  become: true
+  - name: "Include acme.molecule_testing"
+    ansible.builtin.include_role:
+       name: "acme.molecule_testing"
+    - 
+ 
+ 
+ # tasks:
+ #    - name: Testing a command
+ #      win_command: netstat -e
   
   #  - name: "Include acme.molecule_testing"
    #   ansible.builtin.include_role:
