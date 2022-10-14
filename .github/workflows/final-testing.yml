@@ -59,6 +59,17 @@ jobs:
           replace: "ansible_ssh_private_key_file: ~/.ssh/id_rsa"
           include: "./molecule_testing/molecule/default/molecule.yml"
           regex: true
+          
+    - name: Modify version number
+      uses: mingjun97/file-regex-replace@v1
+      with:
+        regrex: '"ansible_ssh_private_key_file":"*"'    #    regex: '"version": "([0-9\.]*)",'
+        replacement: '"ansible_ssh_private_key_file": "$1-test"'
+        flags: "g"                  # Optional, defaults to "g"
+        include: './molecule_testing/molecule/default/molecule.yml'    # Optional, defaults to ".*"
+        exclude: '.^'               # Optional, defaults to '.^'
+        encoding: 'utf8'            # Optional, defaults to 'utf8'
+        path: '.'                   # Optional, defaults to '.'
     - name: Testing output
       run: cat ./molecule_testing/molecule/default/molecule.yml 
     - name: Run molecule tests
