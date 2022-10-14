@@ -9,7 +9,7 @@
       msg: Hello, World!
   - name: Copy file
     ansible.builtin.copy:
-      src: ../../file/a.txt
+      src: a.txt
       dest: /foo.txt
   
  #    - name: Testing a command
