@@ -60,7 +60,7 @@ jobs:
           include: "./molecule_testing/molecule/default/molecule.yml"
           regex: true
     - name: Testing output
-      run: cat ./molecule/testing/molecule/default/molecule.yml 
+      run: cat ./molecule_testing/molecule/default/molecule.yml 
     - name: Run molecule tests
       run: "cd molecule_testing && ls ~/.ssh/ && cat ~/.ssh/id_rsa && molecule test" 
       
