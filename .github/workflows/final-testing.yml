@@ -50,6 +50,8 @@ jobs:
       uses: webfactory/ssh-agent@v0.5.4
       with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
+    - name: Run Test
+      run: molecule test
   #  - name: Replacing a path to private key file
   #    run: "sed -i 's|ansible_ssh_private_key_file:.*|ansible_ssh_private_key_file: ~/.ssh/id_rsa|g' ./molecule_testing/molecule/default/molecule.yml"
   #  - name: Find and Replace
@@ -72,13 +74,13 @@ jobs:
   #      path: '.'                   # Optional, defaults to '.'
   #  - name: Testing output
   #    run: cat ./molecule_testing/molecule/default/molecule.yml 
-    - name: Molecule
-      uses: gofrolist/molecule-action@v2
-      with:
-          molecule_command: test
-          molecule_working_dir: molecule_testing
-      env:
-        ANSIBLE_FORCE_COLOR: '1'  
+  #  - name: Molecule
+  #    uses: gofrolist/molecule-action@v2
+  #    with:
+  #        molecule_command: test
+  #        molecule_working_dir: molecule_testing
+  #    env:
+  #      ANSIBLE_FORCE_COLOR: '1'  
       
         
         
