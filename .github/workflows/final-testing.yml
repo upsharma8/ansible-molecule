@@ -80,7 +80,8 @@ jobs:
           molecule_command: test
           molecule_working_dir: molecule_testing
       env:
-        ANSIBLE_FORCE_COLOR: '1'  
+        ANSIBLE_FORCE_COLOR: '1'
+        SSH_AUTH_SOCK: $SSH_AUTH_SOCK
       
         
         
