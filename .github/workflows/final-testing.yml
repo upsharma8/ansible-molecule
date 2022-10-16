@@ -51,7 +51,7 @@ jobs:
       with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
     - name: Run Test
-      run: molecule test
+      run: cd molecule_testing && molecule test
   #  - name: Replacing a path to private key file
   #    run: "sed -i 's|ansible_ssh_private_key_file:.*|ansible_ssh_private_key_file: ~/.ssh/id_rsa|g' ./molecule_testing/molecule/default/molecule.yml"
   #  - name: Find and Replace
