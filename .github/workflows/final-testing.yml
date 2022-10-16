@@ -77,7 +77,7 @@ jobs:
       with:
           molecule_options: --debug --base-config molecule_testing/molecule/default/molecule.yml
           molecule_command: test
-          molecule-working-dir: molecule_testing
+          molecule_working_dir: molecule_testing
       env:
         ANSIBLE_FORCE_COLOR: '1'  
       
