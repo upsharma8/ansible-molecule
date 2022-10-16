@@ -75,6 +75,7 @@ jobs:
     - name: Molecule
       uses: gofrolist/molecule-action@v2
       with:
+          molecule_options: --debug --base-config molecule_testing/molecule/default/molecule.yml
           molecule_command: test
       env:
         ANSIBLE_FORCE_COLOR: '1'  
