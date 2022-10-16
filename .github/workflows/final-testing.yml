@@ -46,10 +46,10 @@ jobs:
   #    env:
   #      PASSWORD: ${{ secrets.TESTING_WINDOWS_PWD }}
     
-  #  - name: Setup private key
-  #    uses: webfactory/ssh-agent@v0.5.4
-  #    with:
-  #        ssh-private-key: ${{ secrets.SSH_KEY }}
+    - name: Setup private key
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
     - name: Run Test
       run: cd molecule_testing && molecule test
   #  - name: Replacing a path to private key file
@@ -74,13 +74,13 @@ jobs:
   #      path: '.'                   # Optional, defaults to '.'
   #  - name: Testing output
   #    run: cat ./molecule_testing/molecule/default/molecule.yml 
-  #  - name: Molecule
-  #    uses: gofrolist/molecule-action@v2
-  #    with:
-  #        molecule_command: test
-  #        molecule_working_dir: molecule_testing
-  #    env:
-  #      ANSIBLE_FORCE_COLOR: '1'  
+    - name: Molecule
+      uses: gofrolist/molecule-action@v2
+      with:
+          molecule_command: test
+          molecule_working_dir: molecule_testing
+      env:
+        ANSIBLE_FORCE_COLOR: '1'  
       
         
         
