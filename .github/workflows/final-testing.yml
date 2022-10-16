@@ -81,8 +81,7 @@ jobs:
           molecule_working_dir: molecule_testing
       env:
         ANSIBLE_FORCE_COLOR: '1'
-        SSH_AUTH_SOCK: $SSH_AUTH_SOCK
-      
+        SSH_AGENT_PID: $SSH_AGENT_PID     
         
         
     
