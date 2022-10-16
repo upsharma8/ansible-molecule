@@ -25,12 +25,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: Install dependencies.
-      run: "python3 -m pip install molecule && python3 -m pip install pywinrm"
+  #  - name: Set up Python
+  #    uses: actions/setup-python@v2
+  #    with:
+  #      python-version: '3.x'
+  #  - name: Install dependencies.
+  #    run: "python3 -m pip install molecule && python3 -m pip install pywinrm"
 #    - name: Install SSH key
 #      uses: shimataro/ssh-key-action@v2
 #      with:
@@ -72,8 +72,12 @@ jobs:
   #      path: '.'                   # Optional, defaults to '.'
   #  - name: Testing output
   #    run: cat ./molecule_testing/molecule/default/molecule.yml 
-    - name: Run molecule tests
-      run: "cd molecule_testing && molecule test" 
+    - name: Molecule
+      uses: gofrolist/molecule-action@v2
+      with:
+          molecule_command: test
+      env:
+        ANSIBLE_FORCE_COLOR: '1'  
       
         
         
